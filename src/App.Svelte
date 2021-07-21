@@ -1,6 +1,7 @@
 
 
-<script> 
+<script>
+  import { onMount } from "svelte";
   import Board from './components/Board.svelte' 
 
 
@@ -14,6 +15,16 @@
 
   const changePlayer = () => {
     player = (player === 'X' ? 'O' : 'X')
+  }
+
+  let nodes
+
+  onMount(() => {
+    nodes = document.getElementsByClassName('tile')
+  })
+
+  const validateBoard = () => {
+    
   }
 
 </script>
