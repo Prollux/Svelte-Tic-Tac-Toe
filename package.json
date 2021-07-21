@@ -1,0 +1,26 @@
+{
+  "name": "svelte-tic-tac-toe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "svelte": "^3.39.0",
+    "svelte-loader": "^3.1.2",
+    "webpack": "^5.45.1",
+    "webpack-cli": "^4.7.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Prollux/Svelte-Tic-Tac-Toe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Prollux/Svelte-Tic-Tac-Toe/issues"
+  },
+  "homepage": "https://github.com/Prollux/Svelte-Tic-Tac-Toe#readme"
+}
