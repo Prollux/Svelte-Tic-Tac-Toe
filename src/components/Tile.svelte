@@ -10,7 +10,20 @@
   }
 </script>
 
+  <button class='tile' id={id} on:click={updateTile}></button>
 
-<main>
-  <button id={id} on:click={updateTile}></button>
-</main>
+  <style>
+    .tile {
+      display: inline-block;
+      background-color: white;
+      border-width: 2px;
+      border-right: 1px;
+      border-left: 1px;
+      border-style:groove;
+      border-color: black;
+      height: 40px;
+      width: 40px;
+      text-align: center;
+      vertical-align: top;
+    }
+  </style>

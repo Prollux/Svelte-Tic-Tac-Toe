@@ -1,7 +1,9 @@
 
 
 <script> 
-  import Tile from './components/Tile.svelte' 
+  import Row from './components/Row.svelte' 
+
+
   let player = 'X'
 
   const changePlayer = () => {
@@ -12,5 +14,5 @@
 
 <main>
   <h1>Current Player: {player}</h1>
-  <Tile id='1' changePlayer={changePlayer} player={player} />
+  <Row indices={[1, 2, 3]} changePlayer={changePlayer} player={player} />
 </main>
