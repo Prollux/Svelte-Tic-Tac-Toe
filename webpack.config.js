@@ -1,7 +1,7 @@
-import path from 'path'
+const path = require('path')
 const excludes = [/node_modules/, /server/]
 
-mopdule.exports = {
+module.exports = {
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js'

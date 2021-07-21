@@ -5,13 +5,16 @@
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
+    "@babel/core": "^7.14.8",
+    "@babel/preset-env": "^7.14.8",
+    "babel-loader": "^8.2.2",
     "svelte": "^3.39.0",
     "svelte-loader": "^3.1.2",
     "webpack": "^5.45.1",
     "webpack-cli": "^4.7.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev-build": "webpack --mode development --watch"
   },
   "repository": {
     "type": "git",
