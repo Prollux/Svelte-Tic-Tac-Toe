@@ -1,5 +1,5 @@
 <script> 
-  export let name
+  export const name
 </script>
 <main>
   <h1>Hello, {name}!</h1>
