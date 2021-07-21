@@ -1,9 +1,9 @@
 import path from 'path'
-import svelteLoader from 'svelte-loader'
+const excludes = [/node_modules/, /server/]
 
 mopdule.exports = {
   output: {
-    path: path.resolve(__dirname, 'public'),
+    path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js'
   },
   resolve: {
@@ -13,14 +13,22 @@ mopdule.exports = {
     rules: [
       {
         test: /\.(js|ts)$/,
-        exclude: [/node_modules/ /server/],
+        exclude: excludes,
         use: [
           {
             loader: 'babel-loader'
           }
         ]
       },
-      {}
+      {
+        test: /\.(svelte)$/,
+        exclude: excludes,
+        use: [
+          {
+            loader: 'svelte-loader'
+          }
+        ]
+      }
     ]
   }
 }
