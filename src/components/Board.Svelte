@@ -3,12 +3,17 @@
 
   export let changePlayer
   export let player
-  export let matrix
+  export let spaces
+  let matrix  = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+  ]
 </script>
 
 <div class='board'>
   {#each matrix as indices}
-    <Row indices={indices} player={player} changePlayer={changePlayer} />
+    <Row indices={indices} player={player} changePlayer={changePlayer} spaces={spaces} />
   {/each}
 </div>
 
