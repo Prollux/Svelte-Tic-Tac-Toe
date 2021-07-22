@@ -3,9 +3,9 @@
 <script>
   import { onMount } from "svelte";
   import Board from './components/Board.svelte' 
+  const emptySpaces = ['', '', '', '', '','', '', '', '']
 
-
-  const spaces = ['', '', '', '', '','', '', '', '']
+  let spaces = [...emptySpaces]
 
   let player = 'X'
 
@@ -13,11 +13,9 @@
     player = (player === 'X' ? 'O' : 'X')
   }
 
-  let nodes
-
-  onMount(() => {
-    nodes = document.getElementsByClassName('tile')
-  })
+  const ResetBoard = () => {
+    spaces = [...emptySpaces]
+  }
 
   const validateBoard = () => {
     
@@ -27,5 +25,6 @@
 
 <main>
   <h1>Current Player: {player}</h1>
+  <button id='reset' on:click={ResetBoard}>Reset</button>
   <Board spaces={spaces} changePlayer={changePlayer} player={player} />
 </main>
