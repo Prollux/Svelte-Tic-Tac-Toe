@@ -50,7 +50,6 @@
       let toMatch = currentRow[0]
       if (toMatch !== '' && toMatch === currentRow[1] && toMatch === currentRow[2]) {
         winnerStore.set(toMatch)
-        console.log(`player ${winner} wins!`)
         break;
       }
     }
