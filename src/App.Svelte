@@ -1,18 +1,23 @@
 
 
 <script>
-  import { onDestroy, onMount } from "svelte";
-  import { subscribe } from "svelte/internal";
+  import { onDestroy } from "svelte";
   import Board from './components/Board.svelte' 
-  import { spacesStore, winnerStore } from './store.js'
+  import { spacesStore, winnerStore, turnStore } from './store.js'
+
+  let turns
+
+  const unsubTurns = turnStore.subscribe(value=> {
+    turns = value
+  })
 
   let spaces
 
-  const unsubscribe = spacesStore.subscribe(value => {
+  const unsubSpaces = spacesStore.subscribe(value => {
     spaces = value
   })
 
-  onDestroy(unsubscribe)
+  onDestroy(unsubSpaces, unsubTurns)
 
   const emptySpaces = ['', '', '', '', '','', '', '', '']
 
@@ -31,6 +36,7 @@
   const ResetBoard = () => {
     spaces = [...emptySpaces]
     winnerStore.set(null)
+    turnStore.set(0)
   }
 
   const validateBoard = () => {
@@ -58,8 +64,10 @@
 </script>
 
 <main>
-  {#if winner}
-    <h1>Player {winner} wins!</h1>
+  {#if turns >= 9 && !winner}
+    <h1>Draw!</h1>
+  {:else if winner}
+      <h1>Player {winner} wins!</h1>
   {:else}
     <h1>Current Player: {player}</h1>
   {/if}

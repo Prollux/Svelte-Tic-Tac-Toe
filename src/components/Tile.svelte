@@ -1,6 +1,6 @@
 <script>
   import { onDestroy } from 'svelte';
-  import { winnerStore } from '../store.js'
+  import { winnerStore, turnStore } from '../store.js'
   export let validateBoard
   export let changePlayer
   export let id
@@ -9,16 +9,23 @@
 
   let winner
 
-  const unsubscribe = winnerStore.subscribe(value => {
+  const unsubWinners = winnerStore.subscribe(value => {
     winner = value
   })
 
-  onDestroy(unsubscribe)
+  let turns
+
+  const unsubTurns = turnStore.subscribe(value => {
+    turns = value
+  })
+
+  onDestroy(unsubWinners, unsubTurns)
 
   const updateTile = (e) => {
     e.preventDefault()
     if (!winner && spaces[id] === '') {
       spaces[id] = player
+      turnStore.set(turns + 1)
       changePlayer()
       validateBoard()
     }
