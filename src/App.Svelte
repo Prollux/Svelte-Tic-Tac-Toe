@@ -2,12 +2,17 @@
 
 <script>
   import { onMount } from "svelte";
+import { subscribe } from "svelte/internal";
   import Board from './components/Board.svelte' 
+  import { boardSpaces } from './store.js'
 
+  let spaces
+
+  boardSpaces.subscribe(value => {
+    spaces = value
+  })
 
   const emptySpaces = ['', '', '', '', '','', '', '', '']
-
-  let spaces = [...emptySpaces]
 
   let player = 'X'
 

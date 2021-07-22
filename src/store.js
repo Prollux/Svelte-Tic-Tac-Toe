@@ -1,3 +1,3 @@
-import { writable } from 'svelte/writable'
+import { writable } from 'svelte/store'
 
-export let spaces = writable(['', '', '', '', '','', '', '', ''])
+export let boardSpaces = writable(['', '', '', '', '','', '', '', ''])
