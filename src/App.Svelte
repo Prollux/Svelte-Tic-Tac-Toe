@@ -37,6 +37,7 @@
     spaces = [...emptySpaces]
     winnerStore.set(null)
     turnStore.set(0)
+    player = 'X'
   }
 
   const validateBoard = () => {
@@ -94,5 +95,4 @@
     display: flex;
     justify-content: center;
   }
-
 </style>
