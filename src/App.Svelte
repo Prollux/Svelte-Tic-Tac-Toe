@@ -49,6 +49,5 @@
 <main>
   <h1>Current Player: {player}</h1>
   <button id='reset' on:click={ResetBoard}>Reset</button>
-  <Board spaces={spaces} changePlayer={changePlayer} player={player} />
-  <button on:click={validateBoard}>Validate</button>
+  <Board spaces={spaces} changePlayer={changePlayer} validateBoard={validateBoard} player={player} />
 </main>

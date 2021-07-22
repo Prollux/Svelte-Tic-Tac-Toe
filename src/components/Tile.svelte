@@ -1,13 +1,15 @@
 <script>
+  export let validateBoard
+  export let changePlayer
   export let id
   export let player
-  export let changePlayer
   export let spaces
 
   const updateTile = (e) => {
     if (spaces[id] === '') {
       spaces[id] = player
       changePlayer()
+      validateBoard()
     }
   }
 </script>
