@@ -47,7 +47,11 @@
 </script>
 
 <main>
-  <h1>Current Player: {player}</h1>
+  {#if winner}
+    <h1>Player {winner} wins!</h1>
+  {:else}
+    <h1>Current Player: {player}</h1>
+  {/if}
   <button id='reset' on:click={ResetBoard}>Reset</button>
   <Board spaces={spaces} changePlayer={changePlayer} validateBoard={validateBoard} player={player} />
 </main>
