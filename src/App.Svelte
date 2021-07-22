@@ -19,6 +19,7 @@
 
   const ResetBoard = () => {
     spaces = [...emptySpaces]
+    winner = null
   }
 
   const validateBoard = () => {
