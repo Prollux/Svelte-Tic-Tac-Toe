@@ -1,12 +1,23 @@
 <script>
+  import { onDestroy } from 'svelte';
+  import { winnerStore } from '../store.js'
   export let validateBoard
   export let changePlayer
   export let id
   export let player
   export let spaces
 
+  let winner
+
+  const unsubscribe = winnerStore.subscribe(value => {
+    winner = value
+  })
+
+  onDestroy(unsubscribe)
+
   const updateTile = (e) => {
-    if (spaces[id] === '') {
+    e.preventDefault()
+    if (!winner && spaces[id] === '') {
       spaces[id] = player
       changePlayer()
       validateBoard()

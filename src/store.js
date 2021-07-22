@@ -1,3 +1,5 @@
 import { writable } from 'svelte/store'
 
-export let boardSpaces = writable(['', '', '', '', '','', '', '', ''])
+export let spacesStore = writable(['', '', '', '', '','', '', '', ''])
+
+export let winnerStore = writable(null)

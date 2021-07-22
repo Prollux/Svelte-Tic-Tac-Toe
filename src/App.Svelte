@@ -1,22 +1,28 @@
 
 
 <script>
-  import { onMount } from "svelte";
-import { subscribe } from "svelte/internal";
+  import { onDestroy, onMount } from "svelte";
+  import { subscribe } from "svelte/internal";
   import Board from './components/Board.svelte' 
-  import { boardSpaces } from './store.js'
+  import { spacesStore, winnerStore } from './store.js'
 
   let spaces
 
-  boardSpaces.subscribe(value => {
+  const unsubscribe = spacesStore.subscribe(value => {
     spaces = value
   })
+
+  onDestroy(unsubscribe)
 
   const emptySpaces = ['', '', '', '', '','', '', '', '']
 
   let player = 'X'
 
-  let winner = null
+  let winner
+
+  winnerStore.subscribe(value => {
+    winner = value
+  })
 
   const changePlayer = () => {
     player = (player === 'X' ? 'O' : 'X')
@@ -24,7 +30,7 @@ import { subscribe } from "svelte/internal";
 
   const ResetBoard = () => {
     spaces = [...emptySpaces]
-    winner = null
+    winnerStore.set(null)
   }
 
   const validateBoard = () => {
@@ -43,7 +49,7 @@ import { subscribe } from "svelte/internal";
       let currentRow = possibleSolves[i].map(index => spaces[index])
       let toMatch = currentRow[0]
       if (toMatch !== '' && toMatch === currentRow[1] && toMatch === currentRow[2]) {
-        winner = toMatch
+        winnerStore.set(toMatch)
         console.log(`player ${winner} wins!`)
         break;
       }
