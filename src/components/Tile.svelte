@@ -2,15 +2,17 @@
   export let id
   export let player
   export let changePlayer
+  export let spaces
+
   const updateTile = (e) => {
-    if (!e.srcElement.innerText) {
-      e.srcElement.innerText = player
+    if (spaces[id] === '') {
+      spaces[id] = player
       changePlayer()
     }
   }
 </script>
 
-  <button class='tile' id={id} on:click={updateTile}></button>
+  <button class='tile' id={'tile{id}'} on:click={updateTile}>{spaces[id]}</button>
 
   <style>
     .tile {
