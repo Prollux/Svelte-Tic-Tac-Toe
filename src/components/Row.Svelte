@@ -17,5 +17,6 @@
   .row-wrapper {
     display:flex;
     flex-direction: row;
+    justify-content: center;
   }
 </style>

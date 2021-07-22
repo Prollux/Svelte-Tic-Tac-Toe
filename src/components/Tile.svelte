@@ -32,7 +32,7 @@
   }
 </script>
 
-  <button class='tile' id={'tile{id}'} on:click={updateTile}>{spaces[id]}</button>
+  <button class='tile' id={`tile${id}`} on:click={updateTile}>{spaces[id]}</button>
 
   <style>
     .tile {
@@ -40,8 +40,9 @@
       background-color: white;
       border-style:groove;
       border-color: black;
-      height: 40px;
-      width: 40px;
+      height: 25vh;
+      width: 25vh;
+      font-size: 20vh;
       text-align: center;
       vertical-align: top;
       margin: -1px;

@@ -71,6 +71,28 @@
   {:else}
     <h1>Current Player: {player}</h1>
   {/if}
-  <button id='reset' on:click={ResetBoard}>Reset</button>
+  <div class='reset-wrapper'>
+    <button id='reset' on:click={ResetBoard}>Reset</button>
+  </div>
   <Board spaces={spaces} changePlayer={changePlayer} validateBoard={validateBoard} player={player} />
 </main>
+
+<style>
+  h1 {
+    text-align: center;
+  }
+  button {
+    width: 50px;
+    margin-bottom: 20px;
+  }
+  main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .reset-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+</style>
